@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { timeStamp } from 'console';
 import { Character } from '../classes/character';
 
 @Injectable({
