@@ -1,5 +1,7 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
+// https://ionicframework.com/docs/theming/colors#new-color-creator
+
 
 /** Ionic CSS Variables **/
 :root {
@@ -229,4 +231,42 @@
 
     --ion-card-background: #1e1e1e;
   }
+}
+
+/*
+ * Class colours
+ * -------------------------------------------
+ */
+
+ :root {
+  --ion-color-knight: #c3131f;
+  --ion-color-knight-rgb: 195,19,31;
+  --ion-color-knight-contrast: #ffffff;
+  --ion-color-knight-contrast-rgb: 255,255,255;
+  --ion-color-knight-shade: #ac111b;
+  --ion-color-knight-tint: #c92b35;
+  --ion-color-shaman: #1613c3;
+  --ion-color-shaman-rgb: 22,19,195;
+  --ion-color-shaman-contrast: #ffffff;
+  --ion-color-shaman-contrast-rgb: 255,255,255;
+  --ion-color-shaman-shade: #1311ac;
+  --ion-color-shaman-tint: #2d2bc9;
+}
+
+.ion-color-knight {
+  --ion-color-base: var(--ion-color-knight);
+  --ion-color-base-rgb: var(--ion-color-knight-rgb);
+  --ion-color-contrast: var(--ion-color-knight-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-knight-contrast-rgb);
+  --ion-color-shade: var(--ion-color-knight-shade);
+  --ion-color-tint: var(--ion-color-knight-tint);
+}
+
+.ion-color-shaman {
+  --ion-color-base: var(--ion-color-shaman);
+  --ion-color-base-rgb: var(--ion-color-shaman-rgb);
+  --ion-color-contrast: var(--ion-color-shaman-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-shaman-contrast-rgb);
+  --ion-color-shade: var(--ion-color-shaman-shade);
+  --ion-color-tint: var(--ion-color-shaman-tint);
 }
