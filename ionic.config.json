@@ -1,0 +1,7 @@
+{
+  "name": "Endeavour React",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

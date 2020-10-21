@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Endeavour
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Endeavour</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-segment (ionChange)="pickCharacter($event)" value="0">
+    <ion-segment-button value="0" >
+      <ion-icon name="shield-outline"></ion-icon>
+      <ion-label [innerHTML] = "characters.callMyName(0)"></ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="1">
+      <ion-icon name="heart-circle-outline"></ion-icon>
+      <ion-label [innerHTML] = "characters.callMyName(1)"></ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="2">
+      <ion-icon name="bonfire-outline"></ion-icon>
+      <ion-label [innerHTML] = "characters.callMyName(2)"></ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div id="container">
+    <h2></h2>
+    <div [innerHTML] = "characters.getCharacterSheet(pageNumber)"></div>
+    <ion-button color="secondary" (click)="characters.levelUp(pageNumber)">Level up!</ion-button>
+  </div>
+</ion-content>
