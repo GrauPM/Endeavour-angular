@@ -5,5 +5,23 @@
 </ion-header>
 
 <ion-content>
+  <ion-card>
+    <ion-card-header>
+      <canvas #canvas class="combat-stage" width="800" height="400"></canvas>  
+    </ion-card-header>
 
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            Allies
+            <div [innerHTML] = "characters.callMyName(0)"></div>
+          </ion-col>
+          <ion-col>
+            Enemies
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

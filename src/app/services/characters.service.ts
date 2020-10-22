@@ -55,7 +55,7 @@ export class CharactersService {
     },
     {
       id: 4,
-      name: "The nameless elder",
+      name: "The elder",
       title: "Plague rat",
       level: 1,
       class: 4,
@@ -70,23 +70,8 @@ export class CharactersService {
     },
     {
       id: 5,
-      name: "Opal",
-      title: "Sea shaman",
-      level: 1,
-      class: 2,
-      health: undefined,
-      mana: undefined,
-      str: 8,
-      vit: 10,
-      dex: 8,
-      int: 12,
-      crit: 5,
-      regen: 15
-    },
-    {
-      id: 6,
       name: "Miles",
-      title: "Enchanter",
+      title: "Mage",
       level: 1,
       class: 4,
       health: undefined,
@@ -99,20 +84,36 @@ export class CharactersService {
       regen: 20
     },
     {
-      id: 100,
-      name: "Smaug",
-      title: "Ancient dragon",
-      level: 3,
-      class: 100,
+      id: 6,
+      name: "Opal",
+      title: "Sea shaman",
+      level: 1,
+      class: 2,
       health: undefined,
       mana: undefined,
-      str: 20,
-      vit: 35,
-      dex: 20,
-      int: 20,
-      crit: 15,
-      regen: 30
+      str: 8,
+      vit: 10,
+      dex: 8,
+      int: 12,
+      crit: 5,
+      regen: 15
     }
+    //,
+    //{
+    //  id: 100,
+    //  name: "Smaug",
+    //  title: "Ancient dragon",
+    //  level: 3,
+    //  class: 100,
+    //  health: undefined,
+    //  mana: undefined,
+    //  str: 20,
+    //  vit: 35,
+    //  dex: 20,
+    //  int: 20,
+    //  crit: 15,
+    //  regen: 30
+    //}
   ];
 
   constructor(private spells: SpellsService) { }

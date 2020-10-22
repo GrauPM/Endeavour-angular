@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Endeavour
+      Current party
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,7 +9,7 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Endeavour</ion-title>
+      <ion-title size="large">Current party</ion-title>
     </ion-toolbar>
   </ion-header>
   
@@ -27,7 +27,7 @@
   <ion-grid>
     <ion-row class="character">
       <ion-col class="character-portrait">
-
+        <!--<img src="../../assets/portraits/arachne.jpeg" />-->
       </ion-col>
       <ion-col class="character-stats">
         <div [innerHTML] = "characters.getCharacterSheet(pageNumber)"></div>
@@ -36,14 +36,23 @@
     </ion-row>
     <ion-row>
       <ion-col class="character-buttons">
-        <a routerLink="../combat">Link</a>
+        <ion-button color="danger">
+          <ion-icon name="hammer-sharp"></ion-icon>
+        </ion-button>
+        <ion-button color="primary">
+          <ion-icon name="flame-sharp"></ion-icon>
+        </ion-button>
+        <ion-button color="primary">
+          <ion-icon name="heart-sharp"></ion-icon>
+        </ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
-  <!--<div id="container">
-    <ion-chip color="shaman">
-      <ion-label>Hans</ion-label>
-    </ion-chip>
+
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button color="danger" routerLink="../combat">
+      <ion-icon name="skull-sharp"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
     
-  </div>-->
 </ion-content>
