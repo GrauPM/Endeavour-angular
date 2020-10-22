@@ -8,15 +8,16 @@ import{ CharactersService } from '../services/characters.service';
 })
 export class HomePage implements OnInit{
 
-  pageNumber = 0;
+  private pageNumber = 0;
 
   constructor(private characters: CharactersService) {
   }
   
   ngOnInit() {
+    //console.log(this.characters)
   }
 
   pickCharacter(position) {
-    this.pageNumber = position.detail.value;
+    this.pageNumber = position.detail.value.split("-").pop();
   }
 }

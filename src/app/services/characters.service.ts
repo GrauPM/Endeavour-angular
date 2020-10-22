@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Character } from '../classes/character';
+import { SpellsService } from '../services/spells.service'
 
 @Injectable({
   providedIn: 'root'
@@ -10,13 +11,13 @@ export class CharactersService {
     {
       id: 1,
       name: "Hans",
-      title: "Court knight",
+      title: "Knight",
       level: 1,
       class: 1,
       health: undefined,
       mana: undefined,
-      str: 10,
-      vit: 12,
+      str: 12,
+      vit: 14,
       dex: 8,
       int: 8,
       crit: 5,
@@ -24,6 +25,51 @@ export class CharactersService {
     },
     {
       id: 2,
+      name: "Enchantler",
+      title: "Archdruid",
+      level: 1,
+      class: 1,
+      health: undefined,
+      mana: undefined,
+      str: 10,
+      vit: 13,
+      dex: 8,
+      int: 11,
+      crit: 5,
+      regen: 15
+    },
+    {
+      id: 3,
+      name: "Arachne",
+      title: "Spider assasin",
+      level: 1,
+      class: 3,
+      health: undefined,
+      mana: undefined,
+      str: 6,
+      vit: 12,
+      dex: 14,
+      int: 8,
+      crit: 10,
+      regen: 8
+    },
+    {
+      id: 4,
+      name: "The nameless elder",
+      title: "Plague rat",
+      level: 1,
+      class: 4,
+      health: undefined,
+      mana: undefined,
+      str: 6,
+      vit: 12,
+      dex: 6,
+      int: 16,
+      crit: 5,
+      regen: 0
+    },
+    {
+      id: 5,
       name: "Opal",
       title: "Sea shaman",
       level: 1,
@@ -38,11 +84,26 @@ export class CharactersService {
       regen: 15
     },
     {
-      id: 3,
+      id: 6,
+      name: "Miles",
+      title: "Enchanter",
+      level: 1,
+      class: 4,
+      health: undefined,
+      mana: undefined,
+      str: 8,
+      vit: 10,
+      dex: 8,
+      int: 14,
+      crit: 5,
+      regen: 20
+    },
+    {
+      id: 100,
       name: "Smaug",
-      title: "The ancient dragon",
+      title: "Ancient dragon",
       level: 3,
-      class: 3,
+      class: 100,
       health: undefined,
       mana: undefined,
       str: 20,
@@ -54,19 +115,41 @@ export class CharactersService {
     }
   ];
 
-  constructor() { }
+  constructor(private spells: SpellsService) { }
 
-  calculateMaxHealth(position) {
-    this.players[position].health = this.players[position].vit * 15;
+  calculateMaxHealth() {
+    this.players.forEach(element => {
+      element.health = element.vit * 15;
+    });
   }
-  calculateMaxMana(position) {
-    this.players[position].mana = this.players[position].int * 10;
+
+  calculateMaxMana() {
+    this.players.forEach(element => {
+      element.mana = element.int * 10;
+    });
   }
 
   callMyName(position) {
+    return this.players[position].name;
+  }
+  callMyFullName(position) {
     return this.players[position].name + ", " + this.players[position].title;
   }
-
+  callMyLevelAndTitle(position) {
+    return "Level " + this.players[position].level + " " + this.players[position].title;
+  }
+  getClassIcon(position) {
+    switch (this.players[position].class) {
+      case 1: return "shield-outline"
+      case 2: return "heart-circle-outline"
+      case 3: return "cut-outline"
+      case 4: return "flash-outline"
+      default: return "bonfire-outline"
+    }
+  }
+  getMySkills(classNumber) {
+    console.log(this.spells.getClassSpells(classNumber));
+  }
   getCharacterSheet(position) {
     let stats = "<p>Name: " + this.players[position].name + ", " + this.players[position].title+ "</p>" +
                 "<p>Level: " + this.players[position].level + "</p>" +
@@ -89,7 +172,7 @@ export class CharactersService {
     this.players[position].int = this.players[position].int + 2;
     this.players[position].crit = this.players[position].crit + .25;
     this.players[position].regen = this.players[position].regen + .5;
-    this.calculateMaxHealth(position);
-    this.calculateMaxMana(position);
+    this.calculateMaxHealth();
+    this.calculateMaxMana();
   }
 }

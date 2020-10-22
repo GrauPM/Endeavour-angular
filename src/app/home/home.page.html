@@ -12,28 +12,38 @@
       <ion-title size="large">Endeavour</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <ion-segment (ionChange)="pickCharacter($event)" value="0">
-    <ion-segment-button value="0" >
-      <ion-icon name="shield-outline"></ion-icon>
-      <ion-label [innerHTML] = "characters.callMyName(0)"></ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="1">
-      <ion-icon name="heart-circle-outline"></ion-icon>
-      <ion-label [innerHTML] = "characters.callMyName(1)"></ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="2">
-      <ion-icon name="bonfire-outline"></ion-icon>
-      <ion-label [innerHTML] = "characters.callMyName(2)"></ion-label>
-    </ion-segment-button>
+  
+  <ion-segment (ionChange)="pickCharacter($event)" value="ion-sb-0" class="segment-wrap">
+    <ng-container *ngFor="let character of characters.players;let i = index;">
+      <ion-segment-button (value)="i" class="segment-wrap--button">
+        <!--<ion-badge color="danger">1</ion-badge>-->
+        <ion-icon [name]="characters.getClassIcon(i)"></ion-icon>
+        <ion-label [innerHTML] = "characters.callMyName(i)"></ion-label>
+        <ion-label [innerHTML] = "characters.callMyLevelAndTitle(i)"></ion-label>
+      </ion-segment-button>
+    </ng-container>
   </ion-segment>
 
-  <div id="container">
-    <h2></h2>
-    <!--<ion-chip color="shaman">
+  <ion-grid>
+    <ion-row class="character">
+      <ion-col class="character-portrait">
+
+      </ion-col>
+      <ion-col class="character-stats">
+        <div [innerHTML] = "characters.getCharacterSheet(pageNumber)"></div>
+        <ion-button color="success" (click)="characters.levelUp(pageNumber)">Level up!</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="character-buttons">
+        <a routerLink="../combat">Link</a>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!--<div id="container">
+    <ion-chip color="shaman">
       <ion-label>Hans</ion-label>
-    </ion-chip>-->
-    <div [innerHTML] = "characters.getCharacterSheet(pageNumber)"></div>
-    <ion-button color="secondary" (click)="characters.levelUp(pageNumber)">Level up!</ion-button>
-  </div>
+    </ion-chip>
+    
+  </div>-->
 </ion-content>

@@ -25,3 +25,18 @@
 #container a {
   text-decoration: none;
 }
+
+.segment-wrap {
+  flex-wrap: wrap;
+}
+
+.segment-wrap--button {
+  flex: 1 0 33%;
+  @media only screen and (min-width: 0) and (max-width: 480px) {
+    flex: 1 0 50%;
+  }
+}
+
+.character-portrait {
+  margin: 30px;
+}

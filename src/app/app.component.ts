@@ -27,13 +27,10 @@ export class AppComponent implements OnInit{
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-
-      this.characters.calculateMaxHealth(0);
-      this.characters.calculateMaxMana(0);
-      this.characters.calculateMaxHealth(1);
-      this.characters.calculateMaxMana(1);
-      this.characters.calculateMaxHealth(2);
-      this.characters.calculateMaxMana(2);
+      
+      this.characters.calculateMaxHealth();
+      this.characters.calculateMaxMana();
+      
     });
   }
 }
