@@ -90,12 +90,12 @@ export class SpellsService {
 
   loadSpells(classNumber,level) {
     switch (classNumber) {
-      case 1: return this.knightSpells;
-      case 2: return this.druidSpells;
-      case 3: return this.rogueSpells;
-      case 4: return this.warlockSpells;
-      case 5: return this.mageSpells;
-      case 6: return this.shamanSpells;
+      case 1: return this.knightSpells.concat(this.defaultSpells);
+      case 2: return this.druidSpells.concat(this.defaultSpells);
+      case 3: return this.rogueSpells.concat(this.defaultSpells);
+      case 4: return this.warlockSpells.concat(this.defaultSpells);
+      case 5: return this.mageSpells.concat(this.defaultSpells);
+      case 6: return this.shamanSpells.concat(this.defaultSpells);
       default: return this.defaultSpells;
     }
   }

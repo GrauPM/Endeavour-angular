@@ -1,0 +1,17 @@
+<ion-grid class="interface-area">
+  <ion-row>
+    <ion-col class="interface-column threat-table">
+      threat
+    </ion-col>
+    <ion-col class="interface-column spells-table">
+
+      <ng-container *ngFor="let character of characters.players;let i = index;">
+        <ion-button color="primary" (click)="getPlayerSpellList(i)" >{{character.name}}</ion-button>
+      </ng-container>
+
+    </ion-col>
+    <ion-col class="interface-column priority-table">
+      priority
+    </ion-col>
+  </ion-row>
+</ion-grid>

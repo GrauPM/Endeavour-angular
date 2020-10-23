@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
+import { CombatInterfaceComponent } from '../components/combat-interface/combat-interface.component'
 
 import { HomePageRoutingModule } from './home-routing.module';
 
@@ -14,6 +15,7 @@ import { HomePageRoutingModule } from './home-routing.module';
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage]
+  entryComponents: [CombatInterfaceComponent],
+  declarations: [HomePage,CombatInterfaceComponent]
 })
 export class HomePageModule {}
