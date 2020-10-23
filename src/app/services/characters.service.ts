@@ -21,14 +21,15 @@ export class CharactersService {
       dex: 8,
       int: 8,
       crit: 5,
-      regen: 10
+      regen: 10,
+      spells: []
     },
     {
       id: 2,
       name: "Enchantler",
       title: "Archdruid",
       level: 1,
-      class: 1,
+      class: 2,
       health: undefined,
       mana: undefined,
       str: 10,
@@ -36,7 +37,8 @@ export class CharactersService {
       dex: 8,
       int: 11,
       crit: 5,
-      regen: 15
+      regen: 15,
+      spells: []
     },
     {
       id: 3,
@@ -51,7 +53,8 @@ export class CharactersService {
       dex: 14,
       int: 8,
       crit: 10,
-      regen: 8
+      regen: 8,
+      spells: []
     },
     {
       id: 4,
@@ -66,14 +69,15 @@ export class CharactersService {
       dex: 6,
       int: 16,
       crit: 5,
-      regen: 0
+      regen: 0,
+      spells: []
     },
     {
       id: 5,
       name: "Miles",
       title: "Mage",
       level: 1,
-      class: 4,
+      class: 5,
       health: undefined,
       mana: undefined,
       str: 8,
@@ -81,14 +85,15 @@ export class CharactersService {
       dex: 8,
       int: 14,
       crit: 5,
-      regen: 20
+      regen: 20,
+      spells: []
     },
     {
       id: 6,
       name: "Opal",
       title: "Sea shaman",
       level: 1,
-      class: 2,
+      class: 6,
       health: undefined,
       mana: undefined,
       str: 8,
@@ -96,62 +101,60 @@ export class CharactersService {
       dex: 8,
       int: 12,
       crit: 5,
-      regen: 15
+      regen: 15,
+      spells: []
     }
-    //,
-    //{
-    //  id: 100,
-    //  name: "Smaug",
-    //  title: "Ancient dragon",
-    //  level: 3,
-    //  class: 100,
-    //  health: undefined,
-    //  mana: undefined,
-    //  str: 20,
-    //  vit: 35,
-    //  dex: 20,
-    //  int: 20,
-    //  crit: 15,
-    //  regen: 30
-    //}
   ];
 
   constructor(private spells: SpellsService) { }
-
+  loadSpells() {
+    this.players.forEach(individual => {
+      individual.spells = this.spells.loadSpells(individual.class,individual.level)
+      //console.log(this.spells.loadSpells(individual.class,individual.level))
+      //console.log(individual)
+    });
+  }
   calculateMaxHealth() {
     this.players.forEach(element => {
       element.health = element.vit * 15;
     });
   }
-
   calculateMaxMana() {
     this.players.forEach(element => {
       element.mana = element.int * 10;
     });
   }
-
-  callMyName(position) {
+  getMyName(position) {
     return this.players[position].name;
   }
-  callMyFullName(position) {
+  getMyFullName(position) {
     return this.players[position].name + ", " + this.players[position].title;
   }
-  callMyLevelAndTitle(position) {
+  getMyLevelAndTitle(position) {
     return "Level " + this.players[position].level + " " + this.players[position].title;
+  }
+  getMySpellList(position) {
+    let spellList = [];
+    //console.log(this.players[position].spells)
+    this.players[position].spells.forEach(spell => {
+      spellList.push(spell.name)
+    });
+    return spellList;
   }
   getClassIcon(position) {
     switch (this.players[position].class) {
-      case 1: return "shield-outline"
-      case 2: return "heart-circle-outline"
+      case 1: case 2: return "shield-outline"
       case 3: return "cut-outline"
-      case 4: return "flash-outline"
+      case 4: case 5: return "flash-outline"
+      case 6: return "heart-circle-outline"
       default: return "bonfire-outline"
     }
   }
-  getMySkills(classNumber) {
-    console.log(this.spells.getClassSpells(classNumber));
+  buttonUseSpell(position,buttonNum) {
+    console.log("Casted spell: " + this.players[position].spells[buttonNum].name)
   }
   getCharacterSheet(position) {
+    //console.log(this.players[position])
     let stats = "<p>Name: " + this.players[position].name + ", " + this.players[position].title+ "</p>" +
                 "<p>Level: " + this.players[position].level + "</p>" +
                 "<p>Health: " + this.players[position].health + "</p>" +
@@ -164,7 +167,6 @@ export class CharactersService {
                 "<p>Mana regen: " + this.players[position].regen + " per turn</p>"
     return stats;
   }
-
   levelUp(position) {
     this.players[position].level++;
     this.players[position].str = this.players[position].str + 2;

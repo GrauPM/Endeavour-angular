@@ -4,6 +4,7 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { CharactersService } from './services/characters.service'
+import { SpellsService } from './services/spells.service'
 
 
 @Component({
@@ -16,21 +17,24 @@ export class AppComponent implements OnInit{
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private characters: CharactersService
+    private characters: CharactersService,
+    private spells: SpellsService
   ) {
     this.initializeApp();
   }
   ngOnInit() {
   }
-
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      
-      this.characters.calculateMaxHealth();
-      this.characters.calculateMaxMana();
-      
+
+      this.initialCharacterLoad();
     });
+  }
+  initialCharacterLoad() {
+    this.characters.loadSpells()      
+    this.characters.calculateMaxHealth();
+    this.characters.calculateMaxMana();
   }
 }

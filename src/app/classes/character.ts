@@ -12,4 +12,5 @@ export class Character {
     int: number;
     crit: number;
     regen: number;
+    spells: Array<any>;
 }

@@ -6,32 +6,105 @@ import { Spell } from '../classes/spell';
 })
 export class SpellsService {
 
-  spellList: Spell[] = [{
-    class: 1,
-    spells: {
-      name: "Cleave",
-      description: "Cleave everything",
-      type: "physical",
-      damage: 30,
-      healing: 0,
-      hitChance: 95,
-      aura: "nothing"
-    }
-    //,
-    //{
-    //  name: "Hibernate",
-    //  description: "Sleep to heal",
-    //  type: "self",
-    //  damage: 0,
-    //  healing: 150,
-    //  hitChance: 100,
-    //  aura: 
-    //}
+  defaultSpells = [{
+    level: 1,
+    name: "Attack",
+    description: "A normal attack",
+    type: "physical",
+    damage: 30,
+    healing: 0,
+    hitChance: 95,
+    aura: undefined
+  }]
+  knightSpells = [{
+    level: 1,
+    name: "Cleave",
+    description: "A cleave",
+    type: "physical",
+    damage: 30,
+    healing: 0,
+    hitChance: 95,
+    aura: undefined
+  },{
+    level: 1,
+    name: "Hibernate",
+    description: "Zzz",
+    type: "magic",
+    damage: 0,
+    healing: 200,
+    hitChance: 100,
+    aura: undefined
+  }]
+  druidSpells = [{
+    level: 1,
+    name: "Regrowth",
+    description: "Regrowth",
+    type: "nature",
+    damage: 0,
+    healing: 30,
+    hitChance: 100,
+    aura: undefined
+  }]
+  rogueSpells = [{
+    level: 1,
+    name: "Backstab",
+    description: "A backstab",
+    type: "physical",
+    damage: 70,
+    healing: 0,
+    hitChance: 95,
+    aura: undefined
+  }]
+  warlockSpells = [{
+    level: 1,
+    name: "Corruption",
+    description: "Corruption",
+    type: "curse",
+    damage: 30,
+    healing: 0,
+    hitChance: 95,
+    aura: undefined
+  }]
+  mageSpells = [{
+    level: 1,
+    name: "Fireball",
+    description: "A fireball",
+    type: "physical",
+    damage: 30,
+    healing: 0,
+    hitChance: 95,
+    aura: undefined
+  }]
+  shamanSpells = [{
+    level: 1,
+    name: "Water wave",
+    description: "A heal",
+    type: "magic",
+    damage: 0,
+    healing: 100,
+    hitChance: 100,
+    aura: undefined
   }]
 
   constructor() { }
-  
-  getClassSpells(classNumber) {
-    return this.spellList[0];
+
+  loadSpells(classNumber,level) {
+    switch (classNumber) {
+      case 1: return this.knightSpells;
+      case 2: return this.druidSpells;
+      case 3: return this.rogueSpells;
+      case 4: return this.warlockSpells;
+      case 5: return this.mageSpells;
+      case 6: return this.shamanSpells;
+      default: return this.defaultSpells;
+    }
   }
+  
+  //getClassSpells(classNumber,level) {
+  //  console.log("getSpells")
+  //  switch (classNumber) {
+  //    case 1: return this.Spells;
+  //    default: return this.defaultSpells;
+  //  }
+  //}
 }

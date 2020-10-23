@@ -19,5 +19,7 @@ export class HomePage implements OnInit{
 
   pickCharacter(position) {
     this.pageNumber = position.detail.value.split("-").pop();
+    //this.characters.getMySkills(this.characters.players[this.pageNumber].class,this.characters.players[this.pageNumber].level)
+    console.log()
   }
 }
