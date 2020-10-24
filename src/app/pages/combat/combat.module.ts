@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { CombatPageRoutingModule } from './combat-routing.module';
 
 import { CombatPage } from './combat.page';
+import { CombatInterfaceComponent } from '../../components/combat-interface/combat-interface.component'
+
 
 @NgModule({
   imports: [
@@ -15,6 +17,7 @@ import { CombatPage } from './combat.page';
     IonicModule,
     CombatPageRoutingModule
   ],
-  declarations: [CombatPage]
+  entryComponents: [CombatInterfaceComponent],
+  declarations: [CombatPage, CombatInterfaceComponent]
 })
 export class CombatPageModule {}

@@ -3,14 +3,15 @@
     justify-content: space-between;
 }
 .interface-column {
-
+    border: 1px solid;
+    background-color: #797979;
+    height: 200px;
 }
 .thread-table {
-    flex: 1 0 20%;
 }
 .spells-table {
-
+    flex-grow: 3;
+    text-align: center;
 }
 .priority-table {
-    flex: 1 0 20%;
 }

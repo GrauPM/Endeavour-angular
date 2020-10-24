@@ -6,11 +6,13 @@
 
 <ion-content>
   <ion-card>
-    <ion-card-header>
-      <canvas #canvas class="combat-stage" width="800" height="400"></canvas>  
+    <ion-card-header class="combat-container">
+      <canvas #canvas class="combat-stage" width="800" height="400"></canvas> 
     </ion-card-header>
 
     <ion-card-content>
+      <button (click)="endTurn()">End turn</button> 
+
       <ion-grid>
         <ion-row>
           <ion-col>
@@ -24,4 +26,6 @@
       </ion-grid>
     </ion-card-content>
   </ion-card>
+  <app-combat-interface class="combat-interface" [combatPriorityList]="combatantPriority"></app-combat-interface>
+
 </ion-content>

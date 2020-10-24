@@ -40,6 +40,27 @@
   text-align: center;
 }
 .character-portrait {
+  border: 1px solid;
   margin: 30px;
   float: right;
+}
+.character-equip {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.item-figure {
+  margin: 0;
+}
+.item-icon {
+  border: 1px solid;
+}
+.item-select {
+  width: 100%;
+  margin: 10px 0;
+}
+.item-icon.miniature {
+  width: 28px;
+  height: 28px;
 }

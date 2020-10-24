@@ -22,7 +22,8 @@ export class CharactersService {
       int: 8,
       crit: 5,
       regen: 10,
-      spells: []
+      spells: [],
+      equippedItem: "tower-shield"
     },
     {
       id: 2,
@@ -38,7 +39,8 @@ export class CharactersService {
       int: 11,
       crit: 5,
       regen: 15,
-      spells: []
+      spells: [],
+      equippedItem: "archdruid-staff"
     },
     {
       id: 3,
@@ -54,7 +56,8 @@ export class CharactersService {
       int: 8,
       crit: 10,
       regen: 8,
-      spells: []
+      spells: [],
+      equippedItem: "assasin-dagger"
     },
     {
       id: 4,
@@ -70,7 +73,8 @@ export class CharactersService {
       int: 16,
       crit: 5,
       regen: 0,
-      spells: []
+      spells: [],
+      equippedItem: "reaper-scythe"
     },
     {
       id: 5,
@@ -86,7 +90,8 @@ export class CharactersService {
       int: 14,
       crit: 5,
       regen: 20,
-      spells: []
+      spells: [],
+      equippedItem: "wizard-hat"
     },
     {
       id: 6,
@@ -102,7 +107,8 @@ export class CharactersService {
       int: 12,
       crit: 5,
       regen: 15,
-      spells: []
+      spells: [],
+      equippedItem: "hydrototem"
     }
   ];
 

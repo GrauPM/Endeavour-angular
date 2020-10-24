@@ -1,6 +1,15 @@
+.combat-container {
+    display: flex;
+    justify-content: center;
+}
 .combat-stage {
     border: 1px solid;
     display: block;
     /*background: url('../../../assets/backgrounds/Mogall_Forest.gif') no-repeat center;
     background-size: contain;*/
 }
+.combat-interface {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+  }

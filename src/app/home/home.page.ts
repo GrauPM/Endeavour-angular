@@ -22,4 +22,8 @@ export class HomePage implements OnInit{
     //this.characters.getMySkills(this.characters.players[this.pageNumber].class,this.characters.players[this.pageNumber].level)
     console.log()
   }
+  equipNewItem(item) {
+    this.characters.players[this.pageNumber].equippedItem = item.detail.value;
+    //this.characters.getMySkills(this.characters.players[this.pageNumber].class,this.characters.players[this.pageNumber].level)
+  }
 }

@@ -13,4 +13,5 @@ export class Character {
     crit: number;
     regen: number;
     spells: Array<any>;
+    equippedItem: string;
 }
