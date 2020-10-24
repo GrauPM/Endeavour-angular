@@ -22,9 +22,9 @@ export class CombatInterfaceComponent implements OnInit {
   }
 
   getPlayerSpellList(position) {
-    this.characters.players[position].spells.forEach(spell => {
+    //this.characters.players[position].spells.forEach(spell => {
       //console.log(spell);
-    });
+    //});
   }
 
   getCurrentCharacter() {

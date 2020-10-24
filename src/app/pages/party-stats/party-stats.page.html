@@ -1,9 +1,88 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>party-stats</ion-title>
+    <ion-title>
+      Current party
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Current party</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-segment (ionChange)="pickCharacter($event)" value="ion-sb-0" class="segment-wrap">
+    <ng-container *ngFor="let character of characters.players;let i = index;">
+      <ion-segment-button (value)="i" class="segment-wrap--button">
+        <!--<ion-badge color="danger">1</ion-badge>
+        <ion-icon [name]="characters.getClassIcon(i)"></ion-icon>-->
+        <figure class="item-figure-miniature" *ngIf="characters.players[i].equippedItem">
+          <img class="item-icon miniature" [src]="'./assets/items/' + characters.players[i].equippedItem + '.jpg'"/>
+        </figure>
+        <ion-label [innerHTML] = "characters.getMyName(i)"></ion-label>
+        <ion-label [innerHTML] = "characters.getMyLevelAndTitle(i)"></ion-label>
+      </ion-segment-button>
+    </ng-container>
+  </ion-segment>
 
+  <ion-grid>
+    <ion-row class="character">
+      <ion-col class="character-portrait">
+        <!--<img src="../../assets/portraits/hans-the-hero.png" />-->
+      </ion-col>
+      <ion-col class="character-stats">
+        <div class="character-stats-list" [innerHTML] = "characters.getCharacterSheet(pageNumber)"></div>
+        <ion-button color="success" (click)="characters.levelUp(pageNumber)">Level up!</ion-button>
+      </ion-col>
+      <ion-col class="character-equip">
+        <figure class="item-figure" *ngIf="characters.players[pageNumber].equippedItem">
+          <img class="item-icon" [src]="'./assets/items/' + characters.players[pageNumber].equippedItem + '.jpg'"/>
+        </figure>
+        <ion-item class="item-select">
+          <ion-label>Equipped item: </ion-label>
+          
+          <ion-select ok-text="Equip" cancel-text="Back" placeholder="Select One" [value]="characters.players[pageNumber].equippedItem" (ionChange)="equipNewItem($event)">
+            <ion-select-option value="knight-sword">Knight's sword</ion-select-option>
+            <ion-select-option value="tower-shield">Tower shield</ion-select-option>
+            <ion-select-option value="hydrototem">Hydrototem</ion-select-option>
+            <ion-select-option value="wizard-hat">Wizard hat</ion-select-option>
+            <ion-select-option value="reaper-scythe">Reaper scythe</ion-select-option>
+            <ion-select-option value="assasin-dagger">Assasin dagger</ion-select-option>
+            <ion-select-option value="archdruid-staff">Archdruid's staff</ion-select-option>
+          </ion-select>
+          
+        </ion-item>
+        <div class="item-stats" [innerHTML] = "items.getItemSheet(characters.players[pageNumber].equippedItem)"></div>
+        <div class="item-spell-list">
+          <ng-container *ngFor="let spell of characters.players[pageNumber].itemStats.spells">
+            <ion-button color="primary">
+              {{spell.name}}
+            </ion-button>
+          </ng-container>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <!--<ion-col class="character-buttons">
+        <ion-button color="danger" (click)="characters.buttonUseSpell(pageNumber,0)">
+          <ion-icon name="hammer-sharp"></ion-icon>
+        </ion-button>
+        <ion-button color="primary">
+          <ion-icon name="flame-sharp"></ion-icon>
+        </ion-button>
+        <ion-button color="primary">
+          <ion-icon name="heart-sharp"></ion-icon>
+        </ion-button>
+      </ion-col>-->
+    </ion-row>
+  </ion-grid>
+  
+  <!--<ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button color="danger" routerLink="../combat">
+      <ion-icon name="skull-sharp"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>-->
+    
 </ion-content>

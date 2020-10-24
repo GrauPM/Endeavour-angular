@@ -16,7 +16,7 @@ export class SpellsService {
     hitChance: 95,
     aura: undefined
   }]
-  knightSpells = [{
+  knightSwordSpells = [{
     level: 1,
     name: "Cleave",
     description: "A cleave",
@@ -27,7 +27,7 @@ export class SpellsService {
     aura: undefined
   },{
     level: 1,
-    name: "Hibernate",
+    name: "Knight's Vow",
     description: "Zzz",
     type: "magic",
     damage: 0,
@@ -35,7 +35,26 @@ export class SpellsService {
     hitChance: 100,
     aura: undefined
   }]
-  druidSpells = [{
+  towerShieldSpells = [{
+    level: 1,
+    name: "Defend",
+    description: "A cleave",
+    type: "physical",
+    damage: 30,
+    healing: 0,
+    hitChance: 95,
+    aura: undefined
+  },{
+    level: 1,
+    name: "Shield bash",
+    description: "Zzz",
+    type: "magic",
+    damage: 0,
+    healing: 200,
+    hitChance: 100,
+    aura: undefined
+  }]
+  archdruidStaffSpells = [{
     level: 1,
     name: "Regrowth",
     description: "Regrowth",
@@ -45,7 +64,7 @@ export class SpellsService {
     hitChance: 100,
     aura: undefined
   }]
-  rogueSpells = [{
+  assassinDaggerSpells = [{
     level: 1,
     name: "Backstab",
     description: "A backstab",
@@ -55,7 +74,7 @@ export class SpellsService {
     hitChance: 95,
     aura: undefined
   }]
-  warlockSpells = [{
+  reaperScytheSpells = [{
     level: 1,
     name: "Corruption",
     description: "Corruption",
@@ -65,7 +84,7 @@ export class SpellsService {
     hitChance: 95,
     aura: undefined
   }]
-  mageSpells = [{
+  wizardHatSpells = [{
     level: 1,
     name: "Fireball",
     description: "A fireball",
@@ -75,7 +94,7 @@ export class SpellsService {
     hitChance: 95,
     aura: undefined
   }]
-  shamanSpells = [{
+  hydrototemSpells = [{
     level: 1,
     name: "Water wave",
     description: "A heal",
@@ -88,14 +107,23 @@ export class SpellsService {
 
   constructor() { }
 
-  loadSpells(classNumber,level) {
-    switch (classNumber) {
-      case 1: return this.knightSpells.concat(this.defaultSpells);
-      case 2: return this.druidSpells.concat(this.defaultSpells);
-      case 3: return this.rogueSpells.concat(this.defaultSpells);
-      case 4: return this.warlockSpells.concat(this.defaultSpells);
-      case 5: return this.mageSpells.concat(this.defaultSpells);
-      case 6: return this.shamanSpells.concat(this.defaultSpells);
+  returnSpells(itemName) {
+    switch (itemName) {
+      //case 1: return this.knightSwordSpells;
+      //case 2: return this.archdruidStaffSpells;
+      //case 3: return this.assassinDaggerSpells;
+      //case 4: return this.reaperScytheSpells;
+      //case 5: return this.wizardHatSpells;
+      //case 6: return this.hydrototemSpells;
+      //default: return this.defaultSpells;
+
+      case "knight-sword": return this.knightSwordSpells;
+      case "tower-shield":  return this.towerShieldSpells
+      case "archdruid-staff": return this.archdruidStaffSpells;
+      case "assasin-dagger": return this.assassinDaggerSpells;
+      case "reaper-scythe": return this.reaperScytheSpells;
+      case "wizard-hat": return this.wizardHatSpells;
+      case "hydrototem": return this.hydrototemSpells;
       default: return this.defaultSpells;
     }
   }

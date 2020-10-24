@@ -1,3 +1,5 @@
+import { Item } from './item';
+
 export class Character {
     id: number;
     name: string;
@@ -12,6 +14,6 @@ export class Character {
     int: number;
     crit: number;
     regen: number;
-    spells: Array<any>;
     equippedItem: string;
+    itemStats: Item;
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Character } from '../classes/character';
-import { SpellsService } from '../services/spells.service'
+import { SpellsService } from '../services/spells.service';
+import { ItemsService } from '../services/items.service';
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +23,8 @@ export class CharactersService {
       int: 8,
       crit: 5,
       regen: 10,
-      spells: [],
-      equippedItem: "tower-shield"
+      equippedItem: "knight-sword",
+      itemStats: undefined
     },
     {
       id: 2,
@@ -39,13 +40,13 @@ export class CharactersService {
       int: 11,
       crit: 5,
       regen: 15,
-      spells: [],
-      equippedItem: "archdruid-staff"
+      equippedItem: "archdruid-staff",
+      itemStats: undefined
     },
     {
       id: 3,
       name: "Arachne",
-      title: "Spider assasin",
+      title: "Assassin",
       level: 1,
       class: 3,
       health: undefined,
@@ -56,13 +57,13 @@ export class CharactersService {
       int: 8,
       crit: 10,
       regen: 8,
-      spells: [],
-      equippedItem: "assasin-dagger"
+      equippedItem: "assasin-dagger",
+      itemStats: undefined
     },
     {
       id: 4,
       name: "The elder",
-      title: "Plague rat",
+      title: "Warlock",
       level: 1,
       class: 4,
       health: undefined,
@@ -73,8 +74,8 @@ export class CharactersService {
       int: 16,
       crit: 5,
       regen: 0,
-      spells: [],
-      equippedItem: "reaper-scythe"
+      equippedItem: "reaper-scythe",
+      itemStats: undefined
     },
     {
       id: 5,
@@ -90,8 +91,8 @@ export class CharactersService {
       int: 14,
       crit: 5,
       regen: 20,
-      spells: [],
-      equippedItem: "wizard-hat"
+      equippedItem: "wizard-hat",
+      itemStats: undefined
     },
     {
       id: 6,
@@ -107,17 +108,15 @@ export class CharactersService {
       int: 12,
       crit: 5,
       regen: 15,
-      spells: [],
-      equippedItem: "hydrototem"
+      equippedItem: "hydrototem",
+      itemStats: undefined
     }
   ];
 
-  constructor(private spells: SpellsService) { }
-  loadSpells() {
-    this.players.forEach(individual => {
-      individual.spells = this.spells.loadSpells(individual.class,individual.level)
-      //console.log(this.spells.loadSpells(individual.class,individual.level))
-      //console.log(individual)
+  constructor(private spells: SpellsService,private items: ItemsService) { }
+  loadItems() {
+    this.players.forEach((individual,i) => {
+      this.players[i].itemStats = this.items.returnItemStats(individual.equippedItem)
     });
   }
   calculateMaxHealth() {
@@ -139,38 +138,18 @@ export class CharactersService {
   getMyLevelAndTitle(position) {
     return "Level " + this.players[position].level + " " + this.players[position].title;
   }
-  getMySpellList(position) {
-    let spellList = [];
-    //console.log(this.players[position].spells)
-    this.players[position].spells.forEach(spell => {
-      spellList.push(spell.name)
-    });
-    return spellList;
-  }
-  getClassIcon(position) {
-    switch (this.players[position].class) {
-      case 1: case 2: return "shield-outline"
-      case 3: return "cut-outline"
-      case 4: case 5: return "flash-outline"
-      case 6: return "heart-circle-outline"
-      default: return "bonfire-outline"
-    }
-  }
-  buttonUseSpell(position,buttonNum) {
-    console.log("Casted spell: " + this.players[position].spells[buttonNum].name)
-  }
   getCharacterSheet(position) {
-    //console.log(this.players[position])
-    let stats = "<p>Name: " + this.players[position].name + ", " + this.players[position].title+ "</p>" +
+    let stats = "<p>" + this.players[position].name + ", " + this.players[position].title+ "</p>" +
                 "<p>Level: " + this.players[position].level + "</p>" +
                 "<p>Health: " + this.players[position].health + "</p>" +
                 "<p>Mana: " + this.players[position].mana + "</p>" +
-                "<p>Str: " + this.players[position].str + "</p>" +
+                "<p>Str: " + this.players[position].str + "</p>" +  // * 1.15 MODIFIER
                 "<p>Vit: " + this.players[position].vit + "</p>" +
                 "<p>Dex: " + this.players[position].dex + "</p>" +
                 "<p>Int: " + this.players[position].int + "</p>" +
                 "<p>Crit chance: " + this.players[position].crit + "%</p>" +
-                "<p>Mana regen: " + this.players[position].regen + " per turn</p>"
+                "<p>Mana regen: " + this.players[position].regen + " per turn</p>";
+                
     return stats;
   }
   levelUp(position) {
@@ -183,5 +162,6 @@ export class CharactersService {
     this.players[position].regen = this.players[position].regen + .5;
     this.calculateMaxHealth();
     this.calculateMaxMana();
+    console.log(this.players)
   }
 }

@@ -30,10 +30,11 @@ export class AppComponent implements OnInit{
       this.splashScreen.hide();
 
       this.initialCharacterLoad();
+      console.log(this.characters)
     });
   }
   initialCharacterLoad() {
-    this.characters.loadSpells()      
+    this.characters.loadItems()      
     this.characters.calculateMaxHealth();
     this.characters.calculateMaxMana();
   }
