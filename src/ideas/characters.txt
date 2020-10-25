@@ -1,0 +1,31 @@
+Hans -> Hedgehog
+        Passive: thorns
+        Hibernate: +threat, heal to full
+Arachne -> Spider
+        Passive: Venom
+        Cocoon: poly
+        Rappel?
+Opal -> Otter
+        Passive: Body heat +fire resist
+        ???
+??? -> Rat
+        Passive: Smell -threat
+        ???
+Miles -> Fox
+        Passive: Sly as a fox + int
+        Boost mana regen
+??? -> Deer
+        Passive: 
+        ???
+??? -> Cat
+        Passive: Cat reflexes +dodge/dex
+        ???
+??? -> Bear
+        Passive: Roar +str
+        ???
+??? -> Ferret
+        Passive: Always go first
+        Quickness: 2 actions this turn
+??? -> Rabbit
+        Passive: +dodge
+        ??? taunt?

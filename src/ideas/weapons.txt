@@ -1,0 +1,24 @@
+Knight sword -> Cleave Knights vow 
+Tower shield -> Behind me! Taunt Shield bash
+Archdruid staff -> Thorns Regrowth Bark armor 
+Assassin blades -> Backstab 
+Wizard hat/wand -> Fireball Ice shards Lightning Dispel curse Polymorph
+Sage book -> Mage armor Dispel magic Beast lore
+Reaper scythe -> Corrupt  Drain life Amplify curse Terror
+Hydrototem -> Heal wave Totem aura Cleanse venom 
+Pickaxe -> Earthquake
+Giant battle-axe -> Cleave Bleeding edge Rampage 
+Light's hammer -> Healing light Blessing Cleanse Radiant light Repel undead
+Sacred book -> Healing light Blessing Salm Cleanse Cure wounds Repel undead
+Standard + spear -> Rallying cry Excite 
+Lantern -> Fire spray Meteor Ignite
+Broken sword -> Curse Wave of spirits 
+Basilysc fang -> Venom Petrify
+Shark fang -> Bleeding Throw bait Water cut
+Dragon scale -> Fire breath Reinforce Dragon roar
+Cauldron -> Throw food?
+Stradivarius -> Songs?
+Large bow -> Multishot Poison sting Aimed shot Track/identify
+Crossbow -> Repeater Bear trap Track/identify
+Claws -> Long jump Bleeding Ferocity
+Vampire cup -> Vampire bite Transfusion Vampiric aura
