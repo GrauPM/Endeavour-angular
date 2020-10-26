@@ -39,8 +39,8 @@ export class ItemsService {
       quote: "",
     },
     {
-      id: "assasin-dagger",
-      name: "Assasin's dagger",
+      id: "assassin-dagger",
+      name: "Assassin's dagger",
       strMod: 0,
       vitMod: 5,
       dexMod: 35,
@@ -87,7 +87,7 @@ export class ItemsService {
       case "knight-sword": itemPosition = 0; break;
       case "tower-shield": itemPosition = 1; break;
       case "archdruid-staff": itemPosition = 2; break;
-      case "assasin-dagger": itemPosition = 3; break;
+      case "assassin-dagger": itemPosition = 3; break;
       case "reaper-scythe": itemPosition = 4; break;
       case "wizard-hat": itemPosition = 5; break;
       case "hydrototem": itemPosition = 6; break;
@@ -115,5 +115,8 @@ export class ItemsService {
     let item =this.itemList.find(element => element.id == itemName);
     item.spells = this.getItemSpells(itemName)
     return item;
+  }
+  castSpell(spell) {
+    console.log("Casted " + spell.name + ". Damage: " + spell.damage)
   }
 }

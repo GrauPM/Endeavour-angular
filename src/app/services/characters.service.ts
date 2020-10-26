@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Character } from '../classes/character';
-import { SpellsService } from '../services/spells.service';
 import { ItemsService } from '../services/items.service';
 
 @Injectable({
@@ -57,7 +56,7 @@ export class CharactersService {
       int: 8,
       crit: 10,
       regen: 8,
-      equippedItem: "assasin-dagger",
+      equippedItem: "assassin-dagger",
       itemStats: undefined
     },
     {
@@ -113,7 +112,7 @@ export class CharactersService {
     }
   ];
 
-  constructor(private spells: SpellsService,private items: ItemsService) { }
+  constructor(private items: ItemsService) { }
   loadItems() {
     this.players.forEach((individual,i) => {
       this.players[i].itemStats = this.items.returnItemStats(individual.equippedItem)
@@ -134,6 +133,9 @@ export class CharactersService {
   }
   getMyFullName(position) {
     return this.players[position].name + ", " + this.players[position].title;
+  }
+  getMyLevel(position) {
+    return "Level " + this.players[position].level;
   }
   getMyLevelAndTitle(position) {
     return "Level " + this.players[position].level + " " + this.players[position].title;

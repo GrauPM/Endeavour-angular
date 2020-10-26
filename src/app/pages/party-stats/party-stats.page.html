@@ -49,7 +49,7 @@
             <ion-select-option value="hydrototem">Hydrototem</ion-select-option>
             <ion-select-option value="wizard-hat">Wizard hat</ion-select-option>
             <ion-select-option value="reaper-scythe">Reaper scythe</ion-select-option>
-            <ion-select-option value="assasin-dagger">Assasin dagger</ion-select-option>
+            <ion-select-option value="assassin-dagger">assassin dagger</ion-select-option>
             <ion-select-option value="archdruid-staff">Archdruid's staff</ion-select-option>
           </ion-select>
           
@@ -57,7 +57,7 @@
         <div class="item-stats" [innerHTML] = "items.getItemSheet(characters.players[pageNumber].equippedItem)"></div>
         <div class="item-spell-list">
           <ng-container *ngFor="let spell of characters.players[pageNumber].itemStats.spells">
-            <ion-button color="primary">
+            <ion-button color="primary" (click)="items.castSpell(spell)">
               {{spell.name}}
             </ion-button>
           </ng-container>

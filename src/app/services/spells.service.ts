@@ -34,6 +34,15 @@ export class SpellsService {
     healing: 200,
     hitChance: 100,
     aura: undefined
+  },{
+    level: 1,
+    name: "Challenge",
+    description: "Challenge everything",
+    type: "magic",
+    damage: 20,
+    healing: 0,
+    hitChance: 100,
+    aura: undefined
   }]
   towerShieldSpells = [{
     level: 1,
@@ -53,6 +62,15 @@ export class SpellsService {
     healing: 200,
     hitChance: 100,
     aura: undefined
+  },{
+    level: 1,
+    name: "Push forward!",
+    description: "",
+    type: "magic",
+    damage: 15,
+    healing: 0,
+    hitChance: 100,
+    aura: undefined
   }]
   archdruidStaffSpells = [{
     level: 1,
@@ -61,6 +79,24 @@ export class SpellsService {
     type: "nature",
     damage: 0,
     healing: 30,
+    hitChance: 100,
+    aura: undefined
+  },{
+    level: 1,
+    name: "Entangling roots",
+    description: "Roots",
+    type: "nature",
+    damage: 15,
+    healing: 0,
+    hitChance: 100,
+    aura: undefined
+  },{
+    level: 1,
+    name: "Bark armor",
+    description: "Bark bark",
+    type: "nature",
+    damage: 0,
+    healing: 0,
     hitChance: 100,
     aura: undefined
   }]
@@ -73,13 +109,40 @@ export class SpellsService {
     healing: 0,
     hitChance: 95,
     aura: undefined
+  },{
+    level: 1,
+    name: "Envenom",
+    description: "A backstab",
+    type: "physical",
+    damage: 30,
+    healing: 0,
+    hitChance: 95,
+    aura: undefined
   }]
   reaperScytheSpells = [{
     level: 1,
     name: "Corruption",
     description: "Corruption",
     type: "curse",
-    damage: 30,
+    damage: 50,
+    healing: 0,
+    hitChance: 95,
+    aura: undefined
+  },{
+    level: 1,
+    name: "Terror",
+    description: "Terror",
+    type: "curse",
+    damage: 0,
+    healing: 0,
+    hitChance: 95,
+    aura: undefined
+  },{
+    level: 1,
+    name: "Amplify curse",
+    description: "Amp",
+    type: "curse",
+    damage: 0,
     healing: 0,
     hitChance: 95,
     aura: undefined
@@ -88,8 +151,26 @@ export class SpellsService {
     level: 1,
     name: "Fireball",
     description: "A fireball",
-    type: "physical",
+    type: "magic",
+    damage: 80,
+    healing: 0,
+    hitChance: 95,
+    aura: undefined
+  },{
+    level: 1,
+    name: "Frost shards",
+    description: "A fireball",
+    type: "magic",
     damage: 30,
+    healing: 0,
+    hitChance: 95,
+    aura: undefined
+  },{
+    level: 1,
+    name: "Polymorph",
+    description: "A fireball",
+    type: "magic",
+    damage: 0,
     healing: 0,
     hitChance: 95,
     aura: undefined
@@ -97,6 +178,24 @@ export class SpellsService {
   hydrototemSpells = [{
     level: 1,
     name: "Water wave",
+    description: "A heal",
+    type: "magic",
+    damage: 0,
+    healing: 100,
+    hitChance: 100,
+    aura: undefined
+  },{
+    level: 1,
+    name: "Totemic aura",
+    description: "A heal",
+    type: "magic",
+    damage: 0,
+    healing: 100,
+    hitChance: 100,
+    aura: undefined
+  },{
+    level: 1,
+    name: "Cleanse poison",
     description: "A heal",
     type: "magic",
     damage: 0,
@@ -120,7 +219,7 @@ export class SpellsService {
       case "knight-sword": return this.knightSwordSpells;
       case "tower-shield":  return this.towerShieldSpells
       case "archdruid-staff": return this.archdruidStaffSpells;
-      case "assasin-dagger": return this.assassinDaggerSpells;
+      case "assassin-dagger": return this.assassinDaggerSpells;
       case "reaper-scythe": return this.reaperScytheSpells;
       case "wizard-hat": return this.wizardHatSpells;
       case "hydrototem": return this.hydrototemSpells;

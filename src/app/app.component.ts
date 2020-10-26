@@ -4,7 +4,7 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { CharactersService } from './services/characters.service'
-import { SpellsService } from './services/spells.service'
+import { ItemsService } from './services/items.service'
 
 
 @Component({
@@ -18,7 +18,7 @@ export class AppComponent implements OnInit{
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private characters: CharactersService,
-    private spells: SpellsService
+    private items: ItemsService
   ) {
     this.initializeApp();
   }
@@ -31,6 +31,7 @@ export class AppComponent implements OnInit{
 
       this.initialCharacterLoad();
       console.log(this.characters)
+      console.log(this.items)
     });
   }
   initialCharacterLoad() {

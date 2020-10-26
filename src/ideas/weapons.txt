@@ -21,4 +21,4 @@ Stradivarius -> Songs?
 Large bow -> Multishot Poison sting Aimed shot Track/identify
 Crossbow -> Repeater Bear trap Track/identify
 Claws -> Long jump Bleeding Ferocity
-Vampire cup -> Vampire bite Transfusion Vampiric aura
+Sacrificial chalice -> Vampire bite Transfusion Vampiric aura
